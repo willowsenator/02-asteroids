@@ -29,6 +29,7 @@ There is no lint, build, or test tooling configured.
 - **`Asteroid`** — size 1–3 indexing the parallel arrays `RADII` / `SPEEDS` / `POINTS` (index 0 unused). `split()` returns two asteroids one size smaller (empty at size 1). Shape is a randomized irregular polygon generated in the constructor.
 - **`Bullet`** — TTL-limited projectile.
 - **`Particle`** — short-lived explosion streak, spawned via `explode(x, y, count)`.
+- **`Powerup`** — drifting triple-shot pickup. Spawns with probability `POWERUP_DROP` where an asteroid died, expires after `POWERUP_TTL` (blinking near the end), and on ship contact sets `ship.tripleShot = TRIPLE_TIME`, which makes `tryShoot()` emit three bullets spread by `TRIPLE_SPREAD`. Lost on respawn and on level change (`Ship.reset()`).
 
 ### Game state (module-level globals)
 
@@ -41,5 +42,4 @@ Global `keys` (held) and `justPressed`/`pressed(code)` (edge-triggered, e.g. sho
 ## Conventions
 
 - Code comments and in-game HUD/overlay text are in **Spanish**; keep new comments and UI strings consistent with that.
-- Tunable gameplay values are `const` uppercase locals inside the relevant method (e.g. `THRUST`, `DRAG`, `ROT` in `Ship.update`) or the top-level `RADII`/`SPEEDS`/`POINTS` arrays — adjust these rather than scattering magic numbers.
-- Note: the README describes power-ups and a "shooting star" asteroid type that are **not** implemented in the current `game.js`.
+- Tunable gameplay values are `const` uppercase locals inside the relevant method (e.g. `THRUST`, `DRAG`, `ROT` in `Ship.update`) or top-level constants (`RADII`/`SPEEDS`/`POINTS`, and the `POWERUP_*`/`TRIPLE_*` group) — adjust these rather than scattering magic numbers.
