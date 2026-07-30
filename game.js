@@ -293,7 +293,8 @@ class Ship {
     }
 
     // Anillo del escudo, con parpadeo en el último segundo
-    if (this.shield > 0 && !(this.shield < 1 && blinking(this.shield))) {
+    const shieldFadingOut = this.shield < 1 && blinking(this.shield);
+    if (this.shield > 0 && !shieldFadingOut) {
       ctx.beginPath();
       ctx.arc(0, 0, SHIELD_RADIUS, 0, Math.PI * 2);
       ctx.strokeStyle = POWERUP_COLORS.shield;
@@ -383,11 +384,11 @@ function explode(x, y, count = 8) {
 
 // Destruye un asteroide (lo puntúa, lo revienta y acumula sus fragmentos).
 // Lo comparten la bala y el escudo, que sólo difieren en si sueltan power-up.
-function destroyAsteroid(a, fragments) {
-  a.dead = true;
-  score += POINTS[a.size];
-  explode(a.x, a.y, a.size * 5);
-  fragments.push(...a.split());
+function destroyAsteroid(asteroid, fragments) {
+  asteroid.dead = true;
+  score += POINTS[asteroid.size];
+  explode(asteroid.x, asteroid.y, asteroid.size * 5);
+  fragments.push(...asteroid.split());
 }
 
 function killShip() {
