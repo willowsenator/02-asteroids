@@ -2,17 +2,13 @@
 
 Clon del clásico arcade **Asteroids** implementado en canvas HTML5 puro, sin dependencias ni bundler.
 
-## Demo:
-
-[Asteroids demo](https://klerith.github.io/claude-asteroids/)
-
 ## Descripción
 
-Nave espacial en un campo de asteroides con envolvimiento de bordes (el espacio es toroidal). Destruye asteroides para sumar puntos: los grandes se parten en medianos, los medianos en pequeños. Incluye power-ups especiales y tipos de asteroides únicos como la estrella fugaz.
+Nave espacial en un campo de asteroides con envolvimiento de bordes (el espacio es toroidal: lo que sale por un borde reaparece por el opuesto). Destruye asteroides para sumar puntos: los grandes se parten en dos medianos y los medianos en dos pequeños. Al limpiar la pantalla avanzas de nivel y aparecen más asteroides.
 
 ## Tecnologías
 
-- **HTML5 Canvas** — renderizado 2D
+- **HTML5 Canvas** — renderizado 2D (lienzo fijo de 800 × 600)
 - **JavaScript (ES6+)** — lógica del juego en un solo archivo `game.js`
 - Sin frameworks, sin bundler, sin dependencias
 
@@ -28,11 +24,12 @@ Luego visita `http://localhost:3000`.
 
 ## Controles
 
-| Tecla     | Acción     |
-| --------- | ---------- |
-| `←` `→`   | Rotar nave |
-| `↑`       | Propulsar  |
-| `Espacio` | Disparar   |
+| Tecla     | Acción                        |
+| --------- | ----------------------------- |
+| `←` `→`   | Rotar nave                    |
+| `↑`       | Propulsar                     |
+| `Espacio` | Disparar                      |
+| `Espacio` | Reiniciar (en pantalla final) |
 
 ## Puntuación
 
@@ -46,4 +43,6 @@ Luego visita `http://localhost:3000`.
 
 - 3 vidas con invencibilidad temporal al reaparecer (parpadeo)
 - Asteroides se parten en fragmentos más pequeños al ser destruidos
-- Partículas de explosión al destruir asteroides
+- Partículas de explosión al destruir asteroides y al perder una vida
+- Niveles progresivos: cada nivel añade más asteroides
+- HUD con puntaje, nivel y vidas restantes
