@@ -1,19 +1,20 @@
 # Changelog
 
-Todos los cambios relevantes de este proyecto se documentan en este archivo.
-El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
+All notable changes to this project are documented in this file.
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
-### Añadido
+### Added
 
-- Clon de **Asteroids** en canvas HTML5: bucle de juego con paso temporal escalado por `dt`, espacio toroidal de 800 × 600, nave con propulsión e inercia, asteroides de tres tamaños que se parten al ser destruidos, balas con tiempo de vida, partículas de explosión, niveles progresivos, 3 vidas con invencibilidad al reaparecer y HUD de puntaje/nivel/vidas.
-- Power-up de **disparo triple**: aparece al destruir un asteroide, dura 5 s y hace que la nave dispare tres balas en abanico.
-- Power-up de **escudo temporal**: dura 6 s y, mientras corre, pulveriza los asteroides que toca (los puntúa, revienta y divide) en lugar de destruir la nave. Es independiente del disparo triple, así que ambos pueden estar activos a la vez, y cada uno muestra su tiempo restante en el HUD. Los dos se pierden al morir y al cambiar de nivel.
+- **Asteroids** clone on HTML5 canvas: game loop with a `dt`-scaled timestep, 800 × 600 toroidal space, ship with thrust and inertia, asteroids in three sizes that split when destroyed, bullets with a time to live, explosion particles, progressive levels, 3 lives with invincibility on respawn and a score/level/lives HUD.
+- **Triple shot** power-up: drops when an asteroid is destroyed, lasts 5 s and makes the ship fire three fanned bullets.
+- **Temporary shield** power-up: lasts 6 s and, while it runs, pulverizes the asteroids it touches (scoring, exploding and splitting them) instead of destroying the ship. It is independent of the triple shot, so both can be active at once, and each shows its remaining time in the HUD. Both are lost on death and on level change.
 
-### Cambiado
+### Changed
 
-- Los power-ups **alternan de tipo** en cada aparición en lugar de sortearse al azar. El sorteo 50/50 era estadísticamente correcto pero producía rachas largas del mismo power-up, que en la práctica se percibían como un sesgo hacia uno de los dos.
-- README reescrito para describir el juego realmente implementado.
+- Power-ups now **alternate type** on every drop instead of being drawn at random. The 50/50 draw was statistically correct but produced long runs of the same power-up, which in practice was perceived as a bias toward one of the two.
+- README rewritten to describe the game as actually implemented.
+- Project language unified to English: code comments, in-game HUD and overlay text, and documentation.
 
 [Unreleased]: https://github.com/willowsenator/02-asteroids/commits/main
