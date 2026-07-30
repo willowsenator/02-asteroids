@@ -1,52 +1,52 @@
 # Asteroids
 
-Clon del clásico arcade **Asteroids** implementado en canvas HTML5 puro, sin dependencias ni bundler.
+A clone of the classic **Asteroids** arcade game built on plain HTML5 canvas, with no dependencies and no bundler.
 
-## Descripción
+## Description
 
-Nave espacial en un campo de asteroides con envolvimiento de bordes (el espacio es toroidal: lo que sale por un borde reaparece por el opuesto). Destruye asteroides para sumar puntos: los grandes se parten en dos medianos y los medianos en dos pequeños. Al limpiar la pantalla avanzas de nivel y aparecen más asteroides.
+A spaceship in an asteroid field with edge wrapping (space is toroidal: whatever leaves through one edge reappears on the opposite one). Destroy asteroids to score: large ones split into two medium, and medium ones into two small. Clearing the screen advances a level and spawns more asteroids.
 
-Al destruir un asteroide puede aparecer un power-up que deriva por el espacio. Los dos tipos se van alternando, así que nunca salen dos iguales seguidos. Se distinguen por color: el **cian** otorga disparo triple (tres balas en abanico durante 5 segundos) y el **verde** levanta un escudo temporal de 6 segundos que pulveriza los asteroides que toque en lugar de destruir la nave. Los dos son independientes: puedes llevar ambos activos a la vez.
+Destroying an asteroid can drop a power-up that drifts through space. The two types alternate, so you never get the same one twice in a row. They are told apart by color: **cyan** grants a triple shot (three fanned bullets for 5 seconds) and **green** raises a temporary 6-second shield that pulverizes any asteroid it touches instead of destroying the ship. The two are independent: you can have both active at once.
 
-## Tecnologías
+## Technologies
 
-- **HTML5 Canvas** — renderizado 2D (lienzo fijo de 800 × 600)
-- **JavaScript (ES6+)** — lógica del juego en un solo archivo `game.js`
-- Sin frameworks, sin bundler, sin dependencias
+- **HTML5 Canvas** — 2D rendering (fixed 800 × 600 surface)
+- **JavaScript (ES6+)** — game logic in a single `game.js` file
+- No frameworks, no bundler, no dependencies
 
-## Cómo correr
+## How to run
 
-Abre `index.html` directamente en el navegador (doble clic), o usa un servidor local:
+Open `index.html` directly in the browser (double-click), or use a local server:
 
 ```bash
 npx serve .
 ```
 
-Luego visita `http://localhost:3000`.
+Then visit `http://localhost:3000`.
 
-## Controles
+## Controls
 
-| Tecla     | Acción                        |
-| --------- | ----------------------------- |
-| `←` `→`   | Rotar nave                    |
-| `↑`       | Propulsar                     |
-| `Espacio` | Disparar                      |
-| `Espacio` | Reiniciar (en pantalla final) |
+| Key     | Action                     |
+| ------- | -------------------------- |
+| `←` `→` | Rotate ship                |
+| `↑`     | Thrust                     |
+| `Space` | Shoot                      |
+| `Space` | Restart (on the end screen) |
 
-## Puntuación
+## Scoring
 
-| Asteroide | Puntos |
-| --------- | ------ |
-| Grande    | 20     |
-| Mediano   | 50     |
-| Pequeño   | 100    |
+| Asteroid | Points |
+| -------- | ------ |
+| Large    | 20     |
+| Medium   | 50     |
+| Small    | 100    |
 
-## Características
+## Features
 
-- 3 vidas con invencibilidad temporal al reaparecer (parpadeo)
-- Asteroides se parten en fragmentos más pequeños al ser destruidos
-- Partículas de explosión al destruir asteroides y al perder una vida
-- Niveles progresivos: cada nivel añade más asteroides
-- Power-up de disparo triple: aparece al destruir asteroides, dura 5 s y se pierde al morir
-- Power-up de escudo temporal: dura 6 s, destruye (y puntúa) los asteroides que toque y también se pierde al morir
-- HUD con puntaje, nivel, vidas restantes y tiempo restante de cada power-up activo
+- 3 lives with temporary invincibility on respawn (blinking)
+- Asteroids split into smaller fragments when destroyed
+- Explosion particles when asteroids are destroyed and when a life is lost
+- Progressive levels: each level adds more asteroids
+- Triple shot power-up: drops when asteroids are destroyed, lasts 5 s and is lost on death
+- Temporary shield power-up: lasts 6 s, destroys (and scores) any asteroid it touches and is also lost on death
+- HUD with score, level, remaining lives and the remaining time of each active power-up
