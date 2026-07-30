@@ -44,6 +44,5 @@ Global `keys` (held) and `justPressed`/`pressed(code)` (edge-triggered, e.g. sho
 
 ## Conventions
 
-- Code comments and in-game HUD/overlay text are in **Spanish**; keep new comments and UI strings consistent with that.
-- **Identifiers stay in English** — variables, functions, classes, constants and properties (`tripleShot`, `shootCooldown`, `destroyAsteroid`, `SHIELD_TIME`). Only comments and user-facing strings are Spanish; never mix the two in a name.
+- **The whole project is in English** — identifiers, code comments, in-game HUD/overlay text, documentation and commit messages. Keep new code and UI strings consistent with that; do not reintroduce Spanish.
 - Tunable gameplay values are `const` uppercase locals inside the relevant method (e.g. `THRUST`, `DRAG`, `ROT` in `Ship.update`) or top-level constants (`RADII`/`SPEEDS`/`POINTS`, and the `POWERUP_*`/`TRIPLE_*`/`SHIELD_*` group) — adjust these rather than scattering magic numbers.
