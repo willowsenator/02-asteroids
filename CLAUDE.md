@@ -36,7 +36,7 @@ There is no lint, build, or test tooling configured.
 
 ### Game state (module-level globals)
 
-`state` is a string state machine: `'playing' | 'dead' | 'gameover'`. `update()` branches on it first. `initGame()` starts a fresh game; `nextLevel()` advances difficulty (more asteroids); `killShip()` handles life loss and the death/gameover transition. Collision detection is brute-force O(bullets × asteroids) and ship-vs-asteroid, using the `dist()` helper against summed radii. Both paths that can destroy an asteroid (a bullet hit, or a shielded ship ramming it) go through `destroyAsteroid(a, fragments)`, which marks it dead, scores it, explodes it and accumulates its split — only the bullet path additionally rolls for a power-up drop.
+`state` is a string state machine: `'playing' | 'dead' | 'gameover'`. `update()` branches on it first. `initGame()` starts a fresh game; `nextLevel()` advances difficulty (more asteroids); `killShip()` handles life loss and the death/gameover transition. Collision detection is brute-force O(bullets × asteroids) and ship-vs-asteroid, using the `dist()` helper against summed radii. Both paths that can destroy an asteroid (a bullet hit, or a shielded ship ramming it) go through `destroyAsteroid(asteroid, fragments)`, which marks it dead, scores it, explodes it and accumulates its split — only the bullet path additionally rolls for a power-up drop.
 
 ### Input
 
@@ -45,4 +45,5 @@ Global `keys` (held) and `justPressed`/`pressed(code)` (edge-triggered, e.g. sho
 ## Conventions
 
 - Code comments and in-game HUD/overlay text are in **Spanish**; keep new comments and UI strings consistent with that.
+- **Identifiers stay in English** — variables, functions, classes, constants and properties (`tripleShot`, `shootCooldown`, `destroyAsteroid`, `SHIELD_TIME`). Only comments and user-facing strings are Spanish; never mix the two in a name.
 - Tunable gameplay values are `const` uppercase locals inside the relevant method (e.g. `THRUST`, `DRAG`, `ROT` in `Ship.update`) or top-level constants (`RADII`/`SPEEDS`/`POINTS`, and the `POWERUP_*`/`TRIPLE_*`/`SHIELD_*` group) — adjust these rather than scattering magic numbers.
